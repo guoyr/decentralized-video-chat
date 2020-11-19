@@ -46,8 +46,8 @@ var VideoChat = {
     navigator.mediaDevices
       .getUserMedia({
         video: {
-          width: { min: 3840, ideal: 3840, max: 3840},
-          height: {min: 2160, ideal: 2160, max: 2160},
+          width: { min: 640, ideal: 3840, max: 3840},
+          height: {min: 480, ideal: 2160, max: 2160},
         },
         audio: true,
       })
