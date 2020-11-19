@@ -41,13 +41,18 @@ var VideoChat = {
   // noMediaStream function.
   requestMediaStream: function (event) {
     logIt("requestMediaStream");
+    logIt()
     rePositionLocalVideo();
     navigator.mediaDevices
       .getUserMedia({
-        video: true,
+        video: {
+          width: { min: 3840, ideal: 3840, max: 3840},
+          height: {min: 2160, ideal: 2160, max: 2160},
+        },
         audio: true,
       })
       .then((stream) => {
+        logIt(stream);
         VideoChat.onMediaStream(stream);
         localVideoText.text("Drag Me");
         setTimeout(() => localVideoText.fadeOut(), 5000);
